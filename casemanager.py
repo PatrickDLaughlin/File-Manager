@@ -5,6 +5,7 @@ def intro():
     print("This python application is intended to create and manage cases\nAuthor: Patrick Laughlin AvePoint Technical Support")
     os.system("PAUSE")
     os.system("CLS")
+
 #Checks if the case number is correct
 def caseNumCheck():
     #This Part Checks the case number for the letter C at the beginning
@@ -22,20 +23,38 @@ def caseNumCheck():
     else:
         print('Case is not the correct number digits')
         pass
+    
+    #This part checks if the case has already been made
+    dirlist = []
+    for root, dirs, files in os.walk('C:\\Users\\patrick.laughlin\\Documents\\Cases'):
+        dirlist += dirs
+    print(dirlist)
+
 #Sets the case # to a global variable
 def setCaseNum():
+    
     global casenum 
     casenum = input("Please enter case number #")
     caseNumCheck()
-    print(casenum + "\nIs the case number correct?\nY or N")
+    print("Is the case number " + casenum + " correct? Y or N")
+    x = input()
+
+#Creates Directory with case# as name
+def makeCaseDir():
+    dirPath = "C:\\Users\\patrick.laughlin\\Documents\\Cases\\"
+    casePath = dirPath + casenum
+    os.mkdir(casePath)
+    print("Directory " + casePath + " created")
+
 #Menu
 def menu():
     print('Please select an option:')
-    print('1. Create new case \n2. Some other option here')
+    print('1. Create new case')
     x = input()
     if x == '1':
         os.system("CLS")
         setCaseNum()
+        makeCaseDir()
 
 def main():
     intro()
