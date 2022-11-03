@@ -9,20 +9,14 @@ def intro():
 #Checks if the case number is correct
 def caseNumCheck():
     #This Part Checks the case number for the letter C at the beginning
-    C = 'C'
-    if C in casenum:
-        pass
-    else:
+    if 'C' not in casenum:
         print('Case # missing letter C')
-        pass
-    numcount = len(casenum)
+        quit()
     
     #This part checks if the case number is the correct number of digits (14)
-    if numcount == 15:
-        pass
-    else:
+    if len(casenum) != 15:
         print('Case is not the correct number digits')
-        pass
+        quit()
     
     #This part checks if the case has already been made
     dirlist = []
@@ -44,7 +38,7 @@ def setCaseNum():
     contfname = input("Please enter Responsible Contact's First Name:")
     contlname = input("Please enter Responsible Contact's Last Name :")
     caseNumCheck()
-    print("Is the case info " + casenum + " " + contfname + " " + contlname + " correct? Y or N")
+    print(f"Is the case info {casenum} {contfname} {contlname} correct? Y or N")
     x = input()
 
 #Creates Directory with case# as name
