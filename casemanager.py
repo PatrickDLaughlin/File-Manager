@@ -29,10 +29,13 @@ def caseNumCheck():
     for root, dirs, files in os.walk('C:\\Users\\patrick.laughlin\\Documents\\Cases'):
         dirlist += dirs
     print(dirlist)
+    if casenum in dirlist:
+        print('Error: Duplicate case diretory exists')
+    else:
+        pass
 
 #Sets the case # to a global variable
 def setCaseNum():
-    
     global casenum 
     casenum = input("Please enter case number #")
     caseNumCheck()
